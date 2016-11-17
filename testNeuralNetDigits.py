@@ -29,7 +29,7 @@ y = allDataY
 # y = np.array([2,5,8,2,7])
 layers = np.array([25])
 
-modelNets = NeuralNet(layers, learningRate = 2.45, numEpochs = 100, epsilon = 0.5)
+modelNets = NeuralNet(layers, learningRate = 3, numEpochs = 1000, epsilon = 0.5)
 modelNets.fit(X, y)
 
 # output predictions on the remaining data
