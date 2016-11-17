@@ -27,9 +27,8 @@ class NeuralNet:
       
         self.thetas = {}
         self.inputs = {}
-        self.gradients = {}
         self.errors = {}
-
+        self.lambdaVal = 0.001
         np.random.seed(42)
 
 
@@ -42,45 +41,31 @@ class NeuralNet:
         #forward propogate 
         n,d = X.shape
 
-        self.inputs[0] = np.c_[np.ones(n), X]
+        X = np.c_[np.ones(n), X]
 
-        numLayers = len(thetas)
+        self.inputs[0] = X
 
         for i in range(self.numLayers - 1):
-            z = self.sigmoid(self.inputs[i].dot(self.thetas[i+1].T))
-            self.inputs[i+1] = np.c_[np.zeros(n), z]
+            z = self.inputs[i].dot(self.thetas[i+1].T)
+            sig = self.sigmoid(z)
+            self.inputs[i+1] = np.c_[np.zeros(n), sig]
 
         self.inputs[self.numLayers - 1] = self.inputs[self.numLayers - 1][:, 1:]
 
 
-        # #set X as first input array
-        # self.inputs[0] = X
-        # #set next input as sigmoid on the activated neurons 
-        # self.inputs[1] = self.sigmoid(np.dot(X, thetas[1].T))
-        # #add bias to layer
-        # self.inputs[1] = np.c_[np.ones(self.inputs[1].shape[0]), self.inputs[1]]
 
-        # print self.inputs[1][:,16:].shape
-
-        # for i in range(2, numLayers - 1):
-        #     self.inputs[i] = self.sigmoid(np.dot(self.inputs[i-1], thetas[i].T))
-        #     self.inputs[i] = np.c_[np.ones(self.inputs[i].shape[0]), self.inputs[i]]
-
-        # for i in range(numLayers-1):
-        #     self.inputs[i+2] = self.sigmoid(np.dot(self.inputs[i+1], thetas[i+2].T))
-        #     # if (i < len(thetas) - 2):       # Do not add bias to the last layer. Only classes here.
-        #     self.inputs[i+2] = np.c_[np.ones(self.inputs[i+2].shape[0]), self.inputs[i+2]]
-
-    
     def calculateGradient(self, X, y):
+
+        gradients = {}
 
         for i in reversed(range(self.numLayers - 1)):
             n, d = self.thetas[i+1].shape
+            l, w = X.shape
 
-            gradient = np.dot(self.errors[i+1].T, self.inputs[i]) / len(y)
-            z = np.append(np.zeros((n, 1)), self.thetas[i+1][:, 1:], axis = 1)
-            self.gradients[i+1] = gradient + z * 0.001
-            self.thetas[i+1] = self.thetas[i+1] - self.learningRate * self.gradients[i+1]
+            gradients[i+1] = np.dot(self.errors[i+1].T, self.inputs[i])
+            regularized = np.concatenate((np.zeros([n, 1]), self.thetas[i+1][:,1:]), axis = 1) * self.lambdaVal
+            gradients[i+1] = (gradients[i+1]/ l + regularized) 
+            self.thetas[i+1] = self.thetas[i+1] - self.learningRate * gradients[i+1]
 
 
     def calculateErrors(self, X, y):
@@ -115,10 +100,10 @@ class NeuralNet:
         for i in range(1, self.numLayers):
             self.thetas[i] = np.random.random_sample([setLayers[i], setLayers[i-1]+1]) * 2.0 * self.epsilon - self.epsilon
 
-        for e in range(self.numEpochs):
+        for epoch in range(self.numEpochs):
             #forward propogate
             self.forwardPropagate(X, self.thetas)
-
+            #do back propogation 
             #compute errors
             self.calculateErrors(X, y_binarized)
             #udapte theta with gradient
