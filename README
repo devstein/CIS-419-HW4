@@ -26,10 +26,10 @@
 #######################################################################################
 
 # Personal information  (BE SURE TO CHANGE THIS!)
-FIRSTNAME: Eric
-LASTNAME:  Eaton
-PENNKEY:   eeaton
-PENNID:    123456
+FIRSTNAME: Devin
+LASTNAME:  Stein
+PENNKEY:   devstein
+PENNID:    17504818
 
 # Which course are you enrolled in?  (enter 419 or 519)
 COURSE:  419 
@@ -47,7 +47,7 @@ SOURCESCONSULTED: |
     While completing the assignment, I consulted the following sources: 
     Chapter 2 of Pattern Recognition and Machine Learning by C. Bishop
     Chapter 5 of Machine Learning, A Probabilistic Perspective by K. Murphy
-
+    Coursera
 
  
 ####################################################################################### 
@@ -70,35 +70,35 @@ PROB_BACKPROPMOMENTUM_EPOCH2: (0.1, 0.1, 0.1, 0.1, 0.1)
 #######################################################################################
 
 # What was the training accuracy?
-TEXT20NEWS_ACCURACY_TRAIN_NB: 123.45
-TEXT20NEWS_ACCURACY_TRAIN_SVM: 123.45
+TEXT20NEWS_ACCURACY_TRAIN_NB: 0.959165635496
+TEXT20NEWS_ACCURACY_TRAIN_SVM: 0.996199398975
 
 # What was the testing accuracy?
-TEXT20NEWS_ACCURACY_TEST_NB: 123.45
-TEXT20NEWS_ACCURACY_TEST_SVM: 123.45
+TEXT20NEWS_ACCURACY_TEST_NB: 0.819437068508
+TEXT20NEWS_ACCURACY_TEST_SVM: 0.846255974509
 
 # What was the training precision?
-TEXT20NEWS_PRECISION_TRAIN_NB: 123.45
-TEXT20NEWS_PRECISION_TRAIN_SVM: 123.45
+TEXT20NEWS_PRECISION_TRAIN_NB: 0.963001641562
+TEXT20NEWS_PRECISION_TRAIN_SVM: 0.996194255998
 
 # What was the testing precision?
-TEXT20NEWS_PRECISION_TEST_NB: 123.45
-TEXT20NEWS_PRECISION_TEST_SVM: 123.45
+TEXT20NEWS_PRECISION_TEST_NB: 0.841965329356
+TEXT20NEWS_PRECISION_TEST_SVM: 0.848552735505
 
 # What was the training recall?
-TEXT20NEWS_RECALL_TRAIN_NB: 123.45
-TEXT20NEWS_RECALL_TRAIN_SVM: 123.45
+TEXT20NEWS_RECALL_TRAIN_NB: 0.94971825651
+TEXT20NEWS_RECALL_TRAIN_SVM: 0.996127608867
 
 # What was the testing recall?
-TEXT20NEWS_RECALL_TEST_NB: 123.45
-TEXT20NEWS_RECALL_TEST_SVM: 123.45
+TEXT20NEWS_RECALL_TEST_NB: 0.803871775123
+TEXT20NEWS_RECALL_TEST_SVM:	0.839373845703
 
 # What was the training time (in seconds)?
-TEXT20NEWS_TIME_TRAIN_NB: 123.45
-TEXT20NEWS_TIME_TRAIN_SVM: 123.45
+TEXT20NEWS_TIME_TRAIN_NB: 0.215321
+TEXT20NEWS_TIME_TRAIN_SVM: 26.950086
 
 # Which classifier performed better overall?  (answer either NAIVEBAYES or SVM -- you can choose only one)
-TEXT20NEWS_BESTCLASSIFIER: UNKNOWN
+TEXT20NEWS_BESTCLASSIFIER: SVM
 
 
 
@@ -108,10 +108,10 @@ TEXT20NEWS_BESTCLASSIFIER: UNKNOWN
 #######################################################################################
 
 # What was the training accuracy?
-NEURALNET_ACCURACY_TRAIN: 123.45
+NEURALNET_ACCURACY_TRAIN: 0.9552
 
 # What was the optimal learning rate?
-NEURALNET_OPTIMAL_LEARNINGRATE: 123.45
+NEURALNET_OPTIMAL_LEARNINGRATE: 3.00
 
  
  
@@ -124,7 +124,7 @@ NEURALNET_OPTIMAL_LEARNINGRATE: 123.45
 #######################################################################################
 
 # Approximately how many hours did it take you to complete this assignment?
-FEEDBACK_NUM_HOURS: 0
+FEEDBACK_NUM_HOURS: 21
 
 # Please list any typos / errors you noticed in the assignment description or skeleton code
 FEEDBACK_ERRORS: |
